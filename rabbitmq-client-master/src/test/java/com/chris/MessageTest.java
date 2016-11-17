@@ -1,15 +1,13 @@
 package com.chris;
 
-import com.chris.producer.MessageProducer;
-
-import java.io.IOException;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.chris.producer.MessageProducer;
 
 /**
  * Created by wuxing on 2016/9/21.
@@ -28,7 +26,7 @@ public class MessageTest {
     @Test
     public void should_send_a_amq_message() throws Exception {
         MessageProducer messageProducer = (MessageProducer) context.getBean("messageProducer");
-        int a = 10000;
+        int a = 100;
         while (a > 0) {
         	// a--;
             messageProducer.sendMessage("Hello, I am amq sender num :" + a--);
